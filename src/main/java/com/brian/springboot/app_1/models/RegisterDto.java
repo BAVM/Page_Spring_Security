@@ -16,10 +16,10 @@ public class RegisterDto {
     @Email
     private String email;
 
-    @NotEmpty
+    
     private String phone;
 
-    @NotEmpty
+    
     private String address;
 
     @Size(min = 6, message = "La contraseña debe ser superior a los 6 caracteres")
