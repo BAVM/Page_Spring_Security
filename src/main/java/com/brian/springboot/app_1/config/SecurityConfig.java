@@ -20,8 +20,8 @@ public class SecurityConfig {
             .requestMatchers("/contact").permitAll()
             .requestMatchers("/register").permitAll()
             .requestMatchers("/login").permitAll()
-            .requestMatchers("/admin/**").hasRole("admin")
-            .requestMatchers("/user/**").hasRole("cliente")
+            .requestMatchers("/admin/profile").hasRole("ADMIN")
+            .requestMatchers("/user/profile").hasRole("USER")
             .requestMatchers("/logout").permitAll()
             .anyRequest().authenticated()
             )
@@ -30,17 +30,11 @@ public class SecurityConfig {
                     .usernameParameter("email")
                     .passwordParameter("password")
                     .successHandler(((request, response, authentication) -> {
-                        authentication.getAuthorities().forEach(auth ->{
-                            try{
-                                if (auth.getAuthority().equals("admin")){
-                                    response.sendRedirect("/admin/profile");
-                                }else{
-                                    response.sendRedirect("/user/profile");
-                                }
-                            }catch (Exception e){
-                                e.printStackTrace();
-                            }
-                        });
+                        if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ADMIN"))) {
+                            response.sendRedirect("/admin/profile");
+                        } else {
+                            response.sendRedirect("/user/profile");
+                        }
                     }))
                     //.defaultSuccessUrl("/",true)
             )
