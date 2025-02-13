@@ -16,6 +16,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         return http
             .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
             .requestMatchers("/").permitAll()
             .requestMatchers("/contact").permitAll()
             .requestMatchers("/register").permitAll()
@@ -30,10 +31,12 @@ public class SecurityConfig {
                     .usernameParameter("email")
                     .passwordParameter("password")
                     .successHandler(((request, response, authentication) -> {
-                        if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ADMIN"))) {
+                        if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
                             response.sendRedirect("/admin/profile");
-                        } else {
+                        } else if(authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_USER"))){
                             response.sendRedirect("/user/profile");
+                        }else {
+                            response.sendRedirect("/login?error=role");
                         }
                     }))
                     //.defaultSuccessUrl("/",true)

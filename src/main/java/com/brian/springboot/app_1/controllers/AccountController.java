@@ -67,7 +67,7 @@ public class AccountController {
                     newUser.setEmail(registerDto.getEmail());
                     newUser.setPhone(registerDto.getPhone());
                     newUser.setAddress(registerDto.getAddress());
-                    newUser.setRole("ROLE_USER");
+                    newUser.setRole("");
                     newUser.setCreatedAt(new Date());
                     newUser.setPassword(bCryptEncoder.encode((registerDto.getPassword())));
 
