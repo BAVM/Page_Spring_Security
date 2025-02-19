@@ -28,34 +28,40 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item text-center">
-                        <a class="nav-link" aria-current="page" href="/">Inicio</a>
+                        <a class="nav-link" aria-current="page" href="/" th:text="#{navbar.home}"></a>
                     </li>
                     <li class="nav-item text-center">
-                        <a class="nav-link" aria-current="page" href="/contact">Contacto</a>
+                        <a class="nav-link" aria-current="page" href="/contact" th:text="#{navbar.contact}"></a>
                     </li>
 
                 </ul>
             </div>
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/register}">Registar</a>
+                    <a class="nav-link" th:href="@{/register}" th:text="#{navbar.signup}"></a>
                 </li>
             </ul>
             <form class="d-flex px-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input class="form-control me-2" type="search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit" th:text="#{navbar.search}"></button>
+            </form>
+            <form method="get" action="" class="d-inline">
+                <select name="lang" onchange="this.form.submit()">
+                    <option value="es" th:selected="${#locale.language == 'es'}">🇪🇸 Español</option>
+                    <option value="en" th:selected="${#locale.language == 'en'}">🇬🇧 English</option>
+                </select>
             </form>
         </div>
     </nav>
 </header>
-    <br/>
-    <div class="container py-5">
+<section>
+    <div class="container">
         <div class="row">
-            <div class="col-lg-5 mx-auto rounded border p-4 form-container">
-                <h1>Iniciar Sesión</h1>
+            <div class="col-lg-5 mx-auto form-container">
+                <h1 th:text="#{login.title}"></h1>
                 <hr />
                 <div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Cuenta no encontrada.</strong>
+                    <strong th:text="#{login.message1}"></strong>
                 </div>
 
                 <div class="row">
@@ -64,23 +70,23 @@
                             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Email</label>
+                            <label class="form-label" th:text="#{login.email}"></label>
                             <input class="form-control" name="email">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Contraseña</label>
+                            <label class="form-label" th:text="#{login.password}"></label>
                             <input class="form-control" type="password" name="password">
                         </div>
                         <br>
-                        <div class=" row">
-                            <div class="offset-sm-3 col-sm-4 d-grid">
+                        <div class="row btn1">
+                            <div class="offset-sm-4 col-sm-4 d-grid">
                                 <div class="col-d-grid">
-                                    <button type="submit" class="btn btn-success">Ingresar</button>
+                                    <button type="submit" class="btn btn-success" th:text="#{navbar.login}"></button>
                                 </div>
                             </div>
                             <div class="col-sm-4 d-grid">
                                 <div class="col-d-grid">
-                                    <a href="/" class="btn btn-outline-primary">Cancelar</a>
+                                    <a href="/" class="btn btn-outline-primary" th:text="#{login.cancel}"></a>
                                 </div>
                             </div>
                         </div>
@@ -89,6 +95,7 @@
             </div>
         </div>
     </div>
+</section>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
