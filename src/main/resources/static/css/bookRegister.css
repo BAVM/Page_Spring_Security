@@ -1,0 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.cont{
+    margin: 70px 200px;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.20);
+
+}
+
+.conta{
+    margin-top:20px;
+    padding:20px;
+    display:flex;
+
+}
+
+.listBook{
+    margin:10px;
+    position: absolute;
+    width:100%;
+    margin-left:2%;
+
+}
+
+.listBook h4{
+    display: flex;
+    font-size: 2em;
+    text-aling: center;
+}
+
+.listBook p{
+    font-size: 1.2em;
+    display: flex;
+}
+
+.listBook hr{
+    color: blue;
+}
+
+.uno{
+    width: 15%;
+    text-aling: center;
+}
+.formClass{
+    margin-top:10%;
+
+}
+.imgBook{
+    background: red;
+    display:flex;
+    margin-top:5%;
+}
+
+.imgBook .content{
+    background: var(--img);
+    background-size: cover;
+    background-position: center;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: absolute;
+    margin-left:35%;
+    width: 38%;
+    height: 450px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+
+}

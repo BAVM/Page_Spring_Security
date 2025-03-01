@@ -18,9 +18,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
             .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
             .requestMatchers("/").permitAll()
-            .requestMatchers("/contact").permitAll()
-            .requestMatchers("/register").permitAll()
-            .requestMatchers("/login").permitAll()
+            .requestMatchers("/contact", "/register", "/login", "/available_books", "/book_register", "/my_books",
+                    "/save", "/mylist/**", "/editBook/**", "/deleteBook/**","/deleteMyList/**").permitAll()
             .requestMatchers("/admin/profile").hasRole("ADMIN")
             .requestMatchers("/user/profile").hasRole("USER")
             .requestMatchers("/logout").permitAll()

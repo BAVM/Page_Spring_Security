@@ -19,40 +19,7 @@
 
 <body>
 <header>
-    <nav class="navbar bg-dark navbar-expand-lg navbar-dark border-bottom" data-bs-theme="dark">
-        <div class="container">
-            <a class="navbar-brand" href="/">Spring Security</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item text-center">
-                        <a class="nav-link" aria-current="page" href="/" th:text="#{navbar.home}"></a>
-                    </li>
-                    <li class="nav-item text-center">
-                        <a class="nav-link" aria-current="page" href="/contact" th:text="#{navbar.contact}"></a>
-                    </li>
-
-                </ul>
-            </div>
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/register}" th:text="#{navbar.signup}"></a>
-                </li>
-            </ul>
-            <form class="d-flex px-3" role="search">
-                <input class="form-control me-2" type="search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit" th:text="#{navbar.search}"></button>
-            </form>
-            <form method="get" action="" class="d-inline">
-                <select name="lang" onchange="this.form.submit()">
-                    <option value="es" th:selected="${#locale.language == 'es'}">🇪🇸 Español</option>
-                    <option value="en" th:selected="${#locale.language == 'en'}">🇬🇧 English</option>
-                </select>
-            </form>
-        </div>
-    </nav>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
 </header>
 <section>
     <div class="container">
@@ -96,6 +63,7 @@
         </div>
     </div>
 </section>
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
