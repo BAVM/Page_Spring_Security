@@ -1,0 +1,39 @@
+.cont {
+  display: flex;
+  gap: 2%;
+  flex-wrap: wrap;
+  align-content: start;
+  height: calc(100vh - 100px);
+  margin-top: calc(100vh - 100px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.20);
+}
+.item:nth-child(1) {
+  width: 20%;
+  height: 75%;
+
+
+}
+
+.item:nth-child(2) {
+  flex-grow: 1;
+  height: 70%;
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+
+
+}
+
+.column {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin:40px;
+    width:100%;
+    text-align: center;
+}
