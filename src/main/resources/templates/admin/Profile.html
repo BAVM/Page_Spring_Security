@@ -25,64 +25,6 @@
     <h1 th:text="#{admin.message}"></h1>
     <p><span th:text="${username}"></span></p>
 
-    <!-- Formulario de actualización de perfil -->
-    <div class="card p-3 mb-3">
-        <h4>Actualizar Perfil</h4>
-        <form id="updateProfileForm">
-            <div class="mb-3">
-                <label for="firstName" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="firstName" required>
-            </div>
-            <div class="mb-3">
-                <label for="lastName" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="lastName" required>
-            </div>
-            <div class="mb-3">
-                <label for="address" class="form-label">Dirección</label>
-                <input type="text" class="form-control" id="address" required>
-            </div>
-            <div class="mb-3">
-                <label for="phone" class="form-label">Teléfono</label>
-                <input type="text" class="form-control" id="phone" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" disabled>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Nueva Contraseña</label>
-                <input type="password" class="form-control" id="password">
-            </div>
-            <div class="mb-3">
-                <label for="confirmPassword" class="form-label">Confirmar Nueva Contraseña</label>
-                <input type="password" class="form-control" id="confirmPassword">
-            </div>
-            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        </form>
-    </div>
-
-    <!-- Listado de Usuarios -->
-    <div class="card p-3">
-        <h4>Lista de Usuarios</h4>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Email</th>
-                <th>Nombre</th>
-                <th>Dirección</th>
-                <th>Teléfono</th>
-                <th>Rol</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-            </tr>
-            </thead>
-            <tbody id="userTableBody">
-            <!-- Los usuarios se insertarán aquí dinámicamente -->
-            </tbody>
-        </table>
-    </div>
-
 </div>
 
 <!-- Optional JavaScript -->

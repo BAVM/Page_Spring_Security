@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+.logout-session {
+    width: 100%;
+}
+
+.dropdown-menu a{
+    text-align: center;
+}
 
 .cont{
     display:flex;

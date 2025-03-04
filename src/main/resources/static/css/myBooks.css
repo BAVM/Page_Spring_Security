@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+.logout-session {
+    width: 100%;
+}
+
+.dropdown-menu a{
+    text-align: center;
+}
+
 .contai{
     margin-top:20px;
     position: relative;
